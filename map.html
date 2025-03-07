@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Tour | CMR University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333333;
+        }
+        
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #f8f8f8;
+            color: #003366;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .page-title {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-title p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tour-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .tour-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .tour-intro h2 {
+            color: #003366;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .tour-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .map-container {
+            position: relative;
+            margin: 2rem auto;
+            max-width: 1000px;
+            height: 600px;
+            background-image: url('https://via.placeholder.com/1000x600');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .map-text {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 80%;
+        }
+        
+        .map-text h3 {
+            color: #003366;
+            margin-bottom: 1rem;
+        }
+        
+        .map-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .view-3d-btn {
+            background-color: #003366;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .view-3d-btn:hover {
+            background-color: #004b8f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .location-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        
+        .location-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .location-info {
+            padding: 1.5rem;
+        }
+        
+        .location-info h3 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .location-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .visit-btn {
+            display: inline-block;
+            background-color: #003366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .visit-btn:hover {
+            background-color: #004b8f;
+        }
+        
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .map-container {
+                height: 400px;
+            }
+            
+            .location-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">CMR University</div>
+        <div class="auth-buttons">
+            <a href="login.html"><button class="btn btn-secondary">Login</button></a>
+            <a href="register.html"><button class="btn btn-primary">Register</button></a>
+        </div>
+    </header>
+    
+    <section class="page-title">
+        <h1>Explore CMR University Campus</h1>
+        <p>Discover our world-class facilities and vibrant campus life</p>
+    </section>
+    
+    <div class="tour-container">
+        <div class="tour-intro">
+            <h2>Welcome to Our Virtual Campus Tour</h2>
+            <p>Experience the LEED Platinum certified campus of CMR University through our interactive virtual tour. Navigate through different buildings, facilities, and spaces to get a feel of our vibrant academic environment before you visit us in person.</p>
+        </div>
+        
+        <div class="map-container">
+            <div class="map-overlay">
+                <div class="map-text">
+                    <h3>Interactive 3D Campus Map</h3>
+                    <p>Explore our entire campus in an immersive 3D environment. Click on buildings to get more information or use the location cards below to visit specific areas.</p>
+                    <a href="fullmap.html"><button class="view-3d-btn">View Full 3D Map</button></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="location-grid">
+            <a href="soet.html" class="location-card">
+                <div class="location-img" style="background-image: url('https://via.placeholder.com/400x300');"></div>
+                <div class="location-info">
+                    <h3>School of Engineering & Technology</h3>
+                    <p>Explore our state-of-the-art engineering labs, research facilities, and innovation centers.</p>
+                    <div class="visit-btn">Take a Tour</div>
+                </div>
+            </a>
+            
+            <a href="sod.html" class="location-card">
+                <div class="location-img" style="background-image: url('https://via.placeholder.com/400x300');"></div>
+                <div class="location-info">
+                    <h3>School of Design</h3>
+                    <p>Discover creative spaces, design studios, and exhibition areas in our design school.</p>
+                    <div class="visit-btn">Take a Tour</div>
+                </div>
+            </a>
+            
+            <a href="gym.html" class="location-card">
+                <div class="location-img" style="background-image: url('https://via.placeholder.com/400x300');"></div>
+                <div class="location-info">
+                    <h3>Fitness Center</h3>
+                    <p>Visit our modern gym equipped with the latest fitness equipment and wellness facilities.</p>
+                    <div class="visit-btn">Take a Tour</div>
+                </div>
+            </a>
+            
+            <a href="stadium.html" class="location-card">
+                <div class="location-img" style="background-image: url('https://via.placeholder.com/400x300');"></div>
+                <div class="location-info">
+                    <h3>Sports Stadium</h3>
+                    <p>Explore our multi-purpose stadium with track and field facilities, courts, and spectator areas.</p>
+                    <div class="visit-btn">Take a Tour</div>
+                </div>
+            </a>
+            
+            <a href="canteen.html" class="location-card">
+                <div class="location-img" style="background-image: url('https://via.placeholder.com/400x300');"></div>
+                <div class="location-info">
+                    <h3>Food Court & Cafeteria</h3>
+                    <p>Discover our diverse dining options with multiple cuisines and comfortable seating areas.</p>
+                    <div class="visit-btn">Take a Tour</div>
+                </div>
+            </a>
+            
+            <a href="hostel.html" class="location-card">
+                <div class="location-img" style="background-image: url('https://via.placeholder.com/400x300');"></div>
+                <div class="location-info">
+                    <h3>Student Hostels</h3>
+                    <p>Tour our comfortable and secure residential facilities for students with modern amenities.</p>
+                    <div class="visit-btn">Take a Tour</div>
+                </div>
+            </a>
+            
+            <a href="indoorgames.html" class="location-card">
+                <div class="location-img" style="background-image: url('https://via.placeholder.com/400x300');"></div>
+                <div class="location-info">
+                    <h3>Indoor Games Arena</h3>
+                    <p>Explore facilities for badminton, table tennis, chess, and other indoor sports activities.</p>
+                    <div class="visit-btn">Take a Tour</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CMR University. All rights reserved.</p>
+        <p>NAAC 'A' Accredited | Established under Karnataka State Act No. 45 of 2013</p>
+    </footer>
+
+    <script>
+        // You can add JavaScript to handle the 3D map functionality
+        document.querySelector('.view-3d-btn').addEventListener('click', function() {
+            alert('3D Map feature will be implemented here. For now, please use the location cards to explore specific areas.');
+        });
+    </script>
+</body>
+</html>

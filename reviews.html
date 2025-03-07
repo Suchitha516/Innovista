@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews & Ratings - CMR University City Campus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #f8f8f8;
+            color: #003366;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .page-header {
+            background-color: #004080;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .reviews-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            color: #003366;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #003366;
+        }
+
+        .review-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+        }
+
+        .reviewer-type {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .review-rating {
+            color: #f8d000;
+            font-size: 1.2rem;
+        }
+
+        .review-content {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .review-date {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .google-review-cta {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .google-review-cta h3 {
+            margin-bottom: 1rem;
+            color: #003366;
+        }
+
+        .google-logo {
+            margin-bottom: 1rem;
+        }
+
+        .google-logo img {
+            height: 40px;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 200px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+        }
+
+        .filter-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-weight: bold;
+            color: #003366;
+        }
+
+        select.filter-select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .page-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: #003366;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .page-link.active {
+            background-color: #003366;
+            color: white;
+            border-color: #003366;
+        }
+
+        .page-link:hover:not(.active) {
+            background-color: #f0f0f0;
+        }
+
+        .campus-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .map-container {
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        /* New styles for the review form */
+        .add-review-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #003366;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+        
+        .star-rating input {
+            display: none;
+        }
+        
+        .star-rating label {
+            cursor: pointer;
+            font-size: 2rem;
+            color: #ddd;
+            transition: color 0.2s;
+            margin-right: 0.25rem;
+        }
+        
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: #f8d000;
+        }
+        
+        .success-message {
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .error-message {
+            background-color: #f2dede;
+            color: #a94442;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .toggle-form-btn {
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-form-btn:hover {
+            background-color: #00264d;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .filter-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .reviewer-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .review-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">CMR University Tour</div>
+        <div class="auth-buttons">
+            <a href="login.html"><button class="btn btn-secondary">Login</button></a>
+            <a href="register.html"><button class="btn btn-primary">Register</button></a>
+        </div>
+    </header>
+    
+    <div class="page-header">
+        <h1>CMR University Reviews</h1>
+        <p>Lakeside Campus, Bangalore (2025-2026)</p>
+    </div>
+    
+    <div class="container">
+        <img src="/api/placeholder/1200/300" alt="CMR University Campus" class="campus-image">
+        
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-value">4.3</div>
+                <div class="stat-label">Average Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">180+</div>
+                <div class="stat-label">Total Reviews</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">87%</div>
+                <div class="stat-label">Satisfaction Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Academic Programs</div>
+            </div>
+        </div>
+        
+        <!-- New Review Form Section -->
+        <button id="toggleFormBtn" class="toggle-form-btn">Add Your Review</button>
+        
+        <div id="addReviewSection" class="add-review-section" style="display: none;">
+            <h2 class="section-title">Submit Your Review</h2>
+            
+            <div id="successMessage" class="success-message">
+                Your review has been submitted successfully! Thank you for your feedback.
+            </div>
+            
+            <div id="errorMessage" class="error-message">
+                Please fill in all required fields and provide a rating.
+            </div>
+            
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="reviewerName">Your Name *</label>
+                    <input type="text" id="reviewerName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewerType">You are a *</label>
+                    <select id="reviewerType" class="form-control" required>
+                        <option value="">Select an option</option>
+                        <option value="Student">Student</option>
+                        <option value="Alumni">Alumni</option>
+                        <option value="Parent">Parent</option>
+                        <option value="Faculty">Faculty</option>
+                        <option value="Visitor">Visitor</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="programSection" style="display: none;">
+                    <label for="program">Program/School *</label>
+                    <select id="program" class="form-control">
+                        <option value="">Select a program</option>
+                        <option value="School of Management">School of Management</option>
+                        <option value="School of Computer Science">School of Computer Science</option>
+                        <option value="School of Engineering">School of Engineering</option>
+                        <option value="School of Architecture">School of Architecture</option>
+                        <option value="School of Law">School of Law</option>
+                        <option value="School of Social Sciences">School of Social Sciences</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rating">Your Rating *</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5" required/>
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4" />
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3" />
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2" />
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1" />
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewContent">Review Content *</label>
+                    <textarea id="reviewContent" class="form-control" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+            </form>
+        </div>
+        
+        <div class="reviews-section">
+            <h2 class="section-title">Student & Visitor Reviews</h2>
+            
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <span class="filter-label">Filter by:</span>
+                    <select class="filter-select">
+                        <option value="all">All Reviews</option>
+                        <option value="student">Student Reviews</option>
+                        <option value="alumni">Alumni Reviews</option>
+                        <option value="parent">Parent Reviews</option>
+                        <option value="visitor">Visitor Reviews</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <span class="filter-label">Sort by:</span>
+                    <select class="filter-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="highest">Highest Rated</option>
+                        <option value="lowest">Lowest Rated</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <span class="filter-label">Rating:</span>
+                    <select class="filter-select">
+                        <option value="all">All Ratings</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="2">2 Stars</option>
+                        <option value="1">1 Star</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- This container will hold all reviews including newly added ones -->
+            <div id="reviewsContainer">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">PK</div>
+                            <div>
+                                <div class="reviewer-name">Priya Kumar</div>
+                                <div class="reviewer-type">Student - School of Management</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <div class="review-content">
+                        <p>My experience at CMR University has been fantastic! The faculty for MBA program is highly experienced and brings real-world insights into the classroom. The campus facilities are excellent with modern classrooms, a well-stocked library, and good tech infrastructure. I especially appreciate the industry connection programs that have helped me network with professionals in my field. The placement cell has been very supportive in preparing us for interviews. The only suggestion would be to improve the cafeteria food options, but overall, an excellent place to pursue higher education.</p>
+                    </div>
+                    <div class="review-date">Posted on February 22, 2025</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">RN</div>
+                            <div>
+                                <div class="reviewer-name">Rahul Nair</div>
+                                <div class="reviewer-type">Alumni - School of Computer Science</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★☆</div>
+                    </div>
+                    <div class="review-content">
+                        <p>I graduated from CMR University's Computer Science program in 2024, and looking back, I'm grateful for the education I received. The curriculum was industry-relevant with good emphasis on practical skills and coding. Most professors were knowledgeable and approachable. The programming labs are well-equipped, though they could use some updates on certain software. What really helped me was the internship program in the final year - I was placed with a good tech company which eventually offered me a full-time position. The campus has a vibrant tech community with hackathons and coding competitions. Some courses could use more depth, but overall, a solid foundation for a tech career.</p>
+                    </div>
+                    <div class="review-date">Posted on January 30, 2025</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">MS</div>
+                            <div>
+                                <div class="reviewer-name">Mira Sharma</div>
+                                <div class="reviewer-type">Parent</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <div class="review-content">
+                        <p>As a parent, I'm extremely impressed with CMR University. My son is studying in the School of Engineering, and the transformation in his approach to learning has been remarkable. The faculty communication with parents is excellent - we receive regular updates about academic performance and campus activities. The campus safety measures are impressive, with proper security personnel and CCTV coverage. What I appreciate most is the balanced approach to education - academic rigor combined with practical exposure and extracurricular activities. The location in HRBR Layout is convenient with good transportation options. The university administration is responsive to parent concerns, which gives me peace of mind.</p>
+                    </div>
+                    <div class="review-date">Posted on February 15, 2025</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">AK</div>
+                            <div>
+                                <div class="reviewer-name">Arun Krishnan</div>
+                                <div class="reviewer-type">Student - School of Architecture</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★☆☆</div>
+                    </div>
+                    <div class="review-content">
+                        <p>I'm currently in my third year of B.Arch program. The architecture studio facilities are decent but could be improved with more space and better equipment. Some professors are excellent with practical industry experience, while others rely too much on theoretical teaching. The design software we use needs updating to the latest versions. On the positive side, the field trips and site visits are well organized and provide valuable hands-on experience. The design workshops with visiting faculty from renowned architectural firms are a highlight. The library needs more architecture-specific books and journals. Campus Wi-Fi can be unreliable at times, which is frustrating when working on large digital projects.</p>
+                    </div>
+                    <div class="review-date">Posted on February 5, 2025</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">SM</div>
+                            <div>
+                                <div class="reviewer-name">Shaan Mehta</div>
+                                <div class="reviewer-type">Visitor - Education Consultant</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★☆</div>
+                    </div>
+                    <div class="review-content">
+                        <p>I visited CMR University City Campus as part of my professional assessment of educational institutions in Bangalore. The campus infrastructure is impressive - modern classrooms, well-maintained grounds, and good laboratory facilities. The administrative staff was cooperative and transparent during my visit. The curriculum across various programs appears to be well-structured with a good balance of theory and practical components. In discussions with current students, most expressed satisfaction with teaching quality and campus life. Areas for improvement include expanding international student exchange programs and research facilities. The placement statistics shared were promising, particularly for engineering and management programs. Based on my assessment, CMR University stands as a strong option for higher education in Bangalore.</p>
+                    </div>
+                    <div class="review-date">Posted on January 18, 2025</div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">4</a>
+                <a href="#" class="page-link">Next →</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CMR University Tour Application. All rights reserved.</p>
+        <p>City Campus - HRBR Layout, Bangalore</p>
+    </footer>
+    
+    <script>
+        // Toggle the review form visibility
+        document.getElementById('toggleFormBtn').addEventListener('click', function() {
+            const formSection = document.getElementById('addReviewSection');
+            if (formSection.style.display === 'none') {
+                formSection.style.display = 'block';
+                this.textContent = 'Hide Review Form';
+            } else {
+                formSection.style.display = 'none';
+                this.textContent = 'Add Your Review';
+            }
+        });
+        
+        // Show/hide program field based on reviewer type
+        document.getElementById('reviewerType').addEventListener('change', function() {
+            const programSection = document.getElementById('programSection');
+            if (this.value === 'Student' || this.value === 'Alumni' || this.value === 'Faculty') {
+                programSection.style.display = 'block';
+                document.getElementById('program').setAttribute('required', 'required');
+            } else {
+                programSection.style.display = 'none';
+                document.getElementById('program').removeAttribute('required');
+            }
+        });
+        
+        // Handle form submission
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            const name = document.getElementById('reviewerName').value;
+            const type = document.getElementById('reviewerType').value;
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const content = document.getElementById('reviewContent').value;
+            
+            if (!name || !type || !rating || !content) {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+                return;
+            }
+            
+            // Get program information if applicable
+            let programInfo = '';
+            if (type === 'Student' || type === 'Alumni' || type === 'Faculty') {
+                programInfo = document.getElementById('program').value;
+                if (!programInfo) {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    return;
+                }
+            }
+            
+            // Create new review
+            addReview(name, type, programInfo, rating.value, content);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+            
+            // Reset form
+            this.reset();
+            document.getElementById('programSection').style.display = 'none';
+            
+            // Hide the form after successful submission (optional)
+            setTimeout(function() {
+                document.getElementById('addReviewSection').style.display = 'none';
+                document.getElementById('toggleFormBtn').textContent = 'Add Your Review';
+                document.getElementById('successMessage').style.display = 'none';
+            }, 3000);
+        });
+        
+        // Function to add a new review to the page
+        function addReview(name, type, program, rating, content) {
+            // Get the current date
+            const now = new Date();
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const formattedDate = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+            
+            // Create the reviewer type display text
+            let typeDisplay = type;
+            if (program) {
+                typeDisplay += ` - ${program}`;
+            }
+            
+            // Create initials for avatar
+            const initials = name.split(' ').map(part => part[0]).join('').toUpperCase();
+            
+            // Create star rating html
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= rating) {
+                    starsHtml += '★';
+                } else {
+                    starsHtml += '☆';
+                }
+            }
+            
+            // Create the review HTML
+            const reviewHtml = `
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">${initials}</div>
+                            <div>
+                                <div class="reviewer-name">${name}</div>
+                                <div class="reviewer-type">${typeDisplay}</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">${starsHtml}</div>
+                    </div>
+                    <div class="review-content">
+                        <p>${content}</p>
+                    </div>
+                    <div class="review-date">Posted on ${formattedDate}</div>
+                </div>
+            `;
+            
+            // Add the new review to the top of the reviews container
+            const reviewsContainer = document.getElementById('reviewsContainer');
+            reviewsContainer.insertAdjacentHTML('afterbegin', reviewHtml);
+            
+            // Scroll to the new review
+            reviewsContainer.firstElementChild.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

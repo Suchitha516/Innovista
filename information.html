@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMR University | Top Private University in Bangalore</title>
+</head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #f8f8f8;
+            color: #003366;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .page-banner {
+            background-color: #004080;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .page-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb {
+            margin-top: 1rem;
+            color: #ccc;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .info-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .info-nav {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .info-nav-item {
+            padding: 0.5rem 1rem;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .info-nav-item:hover, .info-nav-item.active {
+            background-color: #003366;
+            color: white;
+        }
+        
+        .info-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .info-section h2 {
+            color: #003366;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .info-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .info-card {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .info-card h3 {
+            color: #003366;
+            margin-bottom: 1rem;
+        }
+        
+        .info-card p {
+            color: #555;
+        }
+        
+        .faculty-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .faculty-card {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .faculty-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 4px solid #003366;
+        }
+        
+        .faculty-card h4 {
+            color: #003366;
+        }
+        
+        .faculty-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-box {
+            background-color: #004080;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #003366;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid #003366;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+        
+        .accordion {
+            margin-top: 1.5rem;
+        }
+        
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .accordion-header {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-header:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .accordion-content {
+            background-color: white;
+            padding: 1rem;
+            display: none;
+        }
+        
+        .accordion-content.active {
+            display: block;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem;
+            background-color: #f0f0f0;
+            margin-top: 3rem;
+            border-radius: 8px;
+        }
+        
+        .cta-section h2 {
+            color: #003366;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMR University | Top Private University in Bangalore</title>
+</head>
+<body>
+    <header>
+        <div class="logo">CMR University Tour App</div>
+        <div class="nav-links">
+            <a href="front.html">Home</a>
+            <a href="map.html">Map</a>
+            <a href="information.html">Information</a>
+            <a href="events.html">Events</a>
+            <a href="facilities.html">Facilities</a>
+            <a href="reviews.html">Reviews</a>
+        </div>
+    </header>
+    
+    <section class="page-banner">
+        <h1>CMR University Information</h1>
+        <p>Learn everything about CMR University's history, departments, programs, and more</p>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> > University Information
+        </div>
+    </section>
+    
+    <div class="info-container">
+        <div class="info-nav">
+            <div class="info-nav-item active" onclick="showSection('overview')">Overview</div>
+            <div class="info-nav-item" onclick="showSection('departments')">Schools</div>
+            <div class="info-nav-item" onclick="showSection('programs')">Programs</div>
+            <div class="info-nav-item" onclick="showSection('faculty')">Faculty</div>
+            <div class="info-nav-item" onclick="showSection('history')">History</div>
+            <div class="info-nav-item" onclick="showSection('stats')">Statistics</div>
+            <div class="info-nav-item" onclick="showSection('faq')">FAQ</div>
+        </div>
+        
+        <div id="overview" class="info-section">
+            <h2>CMR University Overview</h2>
+            <p>Welcome to CMR University, one of the premier educational institutions in Bangalore, Karnataka. Established in 2013 as a State Private University, CMR University is committed to nurturing creative thinkers and leaders of tomorrow through holistic education focusing on research and innovation.</p>
+            
+            <p>Our university spans across multiple campuses in Bangalore with state-of-the-art facilities, modern classrooms, advanced research laboratories, sports complexes, and comfortable student accommodations. We provide a vibrant learning environment that fosters intellectual growth, innovation, and personal development.</p>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">15,000+</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">600+</div>
+                    <div class="stat-label">Faculty Members</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Degree Programs</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Graduate Placement</div>
+                </div>
+            </div>
+            
+            <p>CMR University is recognized by the University Grants Commission (UGC) and has consistently ranked among the top private universities in India. We are dedicated to providing an inclusive, diverse, and supportive community where students from all backgrounds can excel and reach their full potential.</p>
+        </div>
+        
+        <div id="departments" class="info-section" style="display: none;">
+            <h2>Academic Schools</h2>
+            <p>CMR University is organized into multiple specialized schools, each offering a comprehensive range of undergraduate, postgraduate, and doctoral programs. Our schools are led by distinguished faculty members who are experts in their fields and committed to academic excellence.</p>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>School of Engineering & Technology</h3>
+                    <p>Offering programs in Computer Science, Information Technology, Artificial Intelligence, Machine Learning, Electronics, and various Engineering disciplines. The school features cutting-edge laboratories and research facilities.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>School of Management</h3>
+                    <p>Providing programs in Business Administration, Finance, Marketing, Human Resources, and International Business. The school maintains strong industry connections and offers excellent internship and placement opportunities.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>School of Legal Studies</h3>
+                    <p>Offering comprehensive programs in Law including BA LLB, BBA LLB, LLM, and PhD in Law. The school emphasizes practical legal training through moot courts and internships with leading law firms.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>School of Economics & Commerce</h3>
+                    <p>Providing programs in Economics, Commerce, Accounting, and Finance. The school focuses on developing analytical skills and business acumen through case studies and industry exposure.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>School of Architecture</h3>
+                    <p>Offering programs in Architecture and Design with a focus on sustainable and innovative architectural practices. The school features design studios and digital fabrication labs.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>School of Science Studies</h3>
+                    <p>Housing programs in various science disciplines including Physics, Chemistry, Mathematics, and Life Sciences. The school emphasizes research and practical training.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="programs" class="info-section" style="display: none;">
+            <h2>Academic Programs</h2>
+            <p>CMR University offers a wide spectrum of undergraduate, postgraduate, and doctoral programs designed to prepare students for successful careers and academic pursuits. Our curriculum is regularly updated to align with industry requirements and academic advancements.</p>
+            
+            <h3>Undergraduate Programs</h3>
+            <p>We offer numerous undergraduate degree programs across various disciplines. All our undergraduate programs include a foundation curriculum ensuring students receive a well-rounded education alongside specialized knowledge.</p>
+            
+            <h3>Postgraduate Programs</h3>
+            <p>Our postgraduate programs are designed for students seeking to deepen their expertise and specialize in their chosen fields. We offer both thesis and non-thesis options for most programs.</p>
+            
+            <h3>Doctoral Programs</h3>
+            <p>Our doctoral programs focus on original research and are designed for students who wish to contribute to knowledge advancement in their fields. PhD students work closely with faculty mentors on cutting-edge research projects.</p>
+            
+            <h3>Certificate & Diploma Programs</h3>
+            <p>We also offer various certificate and diploma programs for professionals looking to enhance their skills or transition to new career paths. These programs are flexible and can be completed on a part-time basis.</p>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Engineering & Technology Programs</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>B.Tech in Computer Science and Engineering</li>
+                            <li>B.Tech in Artificial Intelligence and Machine Learning</li>
+                            <li>B.Tech in Information Technology</li>
+                            <li>B.Tech in Electronics and Communication Engineering</li>
+                            <li>M.Tech in Computer Science</li>
+                            <li>M.Tech in Artificial Intelligence</li>
+                            <li>M.Tech in Data Science</li>
+                            <li>PhD in Engineering</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Management Programs</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>BBA (Bachelor of Business Administration)</li>
+                            <li>MBA (Master of Business Administration)</li>
+                            <li>Executive MBA</li>
+                            <li>MBA in Business Analytics</li>
+                            <li>MBA in Digital Marketing</li>
+                            <li>PhD in Management</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Law Programs</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>BA LLB (Hons.) 5-Year Integrated Program</li>
+                            <li>BBA LLB (Hons.) 5-Year Integrated Program</li>
+                            <li>LLB 3-Year Program</li>
+                            <li>LLM (Master of Laws)</li>
+                            <li>PhD in Law</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="faculty" class="info-section" style="display: none;">
+            <h2>Our Faculty</h2>
+            <p>CMR University boasts a team of distinguished faculty members who are leaders in their respective fields. With a perfect blend of academic excellence and industry experience, our professors are dedicated to providing students with a comprehensive and practical education.</p>
+            
+            <div class="faculty-list">
+                <div class="faculty-card">
+                    <img src="/api/placeholder/120/120" alt="Dr. Raghavendra Rao" class="faculty-img">
+                    <h4>Dr. Raghavendra Rao</h4>
+                    <p>Dean, School of Engineering & Technology</p>
+                    <p>PhD in Computer Science, IISc Bangalore</p>
+                </div>
+                
+                <div class="faculty-card">
+                    <img src="/api/placeholder/120/120" alt="Prof. Anand Kumar" class="faculty-img">
+                    <h4>Prof. Anand Kumar</h4>
+                    <p>Dean, School of Management</p>
+                    <p>PhD in Management, IIM Bangalore</p>
+                </div>
+                
+                <div class="faculty-card">
+                    <img src="/api/placeholder/120/120" alt="Dr. Priya Sharma" class="faculty-img">
+                    <h4>Dr. Priya Sharma</h4>
+                    <p>Dean, School of Legal Studies</p>
+                    <p>PhD in Law, National Law School of India University</p>
+                </div>
+                
+                <div class="faculty-card">
+                    <img src="/api/placeholder/120/120" alt="Prof. Venkatesh Reddy" class="faculty-img">
+                    <h4>Prof. Venkatesh Reddy</h4>
+                    <p>Dean, School of Economics & Commerce</p>
+                    <p>PhD in Economics, Delhi School of Economics</p>
+                </div>
+                
+                <div class="faculty-card">
+                    <img src="/api/placeholder/120/120" alt="Dr. Meera Nair" class="faculty-img">
+                    <h4>Dr. Meera Nair</h4>
+                    <p>Dean, School of Architecture</p>
+                    <p>PhD in Architecture, MIT</p>
+                </div>
+                
+                <div class="faculty-card">
+                    <img src="/api/placeholder/120/120" alt="Prof. Suresh Iyer" class="faculty-img">
+                    <h4>Prof. Suresh Iyer</h4>
+                    <p>Dean, School of Science Studies</p>
+                    <p>PhD in Physics, IIT Madras</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="history" class="info-section" style="display: none;">
+            <h2>Our History</h2>
+            <p>CMR University stands on the strong foundation of the CMR Group of Institutions, which has been a pioneer in education since 1990. The university was established in 2013 as a State Private University in Karnataka, continuing the legacy of educational excellence.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>1990</h3>
+                        <p>Establishment of the CMR Group of Institutions with the founding of CMR Institute of Technology.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2000</h3>
+                        <p>Expansion of CMR Group with the establishment of multiple educational institutions across Bangalore.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2013</h3>
+                        <p>CMR University established as a State Private University through the CMR University Act 2013.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2015</h3>
+                        <p>Expansion of academic programs with the introduction of School of Legal Studies and School of Architecture.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2018</h3>
+                        <p>Inauguration of the OMBR Campus, expanding the university's infrastructure and facilities.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2020</h3>
+                        <p>Introduction of new-age programs in AI, Machine Learning, and Data Science to meet industry demands.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2025</h3>
+                        <p>Present day: Continuing our tradition of excellence with enhanced facilities, innovative programs, and global partnerships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="stats" class="info-section" style="display: none;">
+            <h2>University Statistics</h2>
+            <p>CMR University takes pride in its achievements and impact. Here are some key statistics that highlight our growth, diversity, and success over the years.</p>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">15,000+</div>
+                    <div class="stat-label">Students Enrolled</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-number">600+</div>
+                    <div class="stat-label">Faculty Members</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Degree Programs</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Research Centers</div>
+                </div>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Graduate Placement Rate</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Student Clubs</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-number">30,000+</div>
+                    <div class="stat-label">Alumni Worldwide</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-number">80+</div>
+                    <div class="stat-label">International Partners</div>
+                </div>
+            </div>
+            
+            <p>CMR University is consistently ranked among the top private universities in India and has received numerous awards for academic excellence, research contributions, and innovative teaching methodologies.</p>
+        </div>
+        
+        <div id="faq" class="info-section" style="display: none;">
+            <h2>Frequently Asked Questions</h2>
+            <p>Find answers to common questions about CMR University, admissions process, campus life, and more.</p>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What are the admission requirements?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Admission requirements vary by program. Generally, we consider academic performance in qualifying examinations, entrance test scores (CMRUAT or national-level tests like JEE, NEET, CLAT as applicable), and personal interviews. International students may have additional requirements such as English proficiency tests (IELTS/TOEFL).</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Are scholarships available?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, CMR University offers various scholarships based on academic merit, sports excellence, and financial need. We have special scholarships for women in STEM fields and for students from economically disadvantaged backgrounds. Our Financial Aid Office provides detailed information on available scholarships and application procedures.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What is campus housing like?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>CMR University offers modern hostel facilities for both male and female students across our campuses. The hostels feature comfortable rooms, Wi-Fi, dining facilities, recreation areas, study spaces, and 24/7 security. We provide different room configurations including single, double, and triple sharing options to suit various preferences and budgets.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What career services are available?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Our Center for Career Development offers comprehensive career services including resume building, interview preparation, career counseling, industry-specific workshops, job fairs, and recruitment drives. We have tie-ups with over 500 companies that regularly recruit our graduates. Our strong industry connections ensure excellent internship and placement opportunities for our students.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Are there opportunities for research?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Absolutely! CMR University strongly emphasizes research across all disciplines. We have dedicated research centers focusing on areas like Artificial Intelligence, Sustainable Development, Legal Studies, and more. Students can participate in faculty-led research projects, apply for research grants, and present their work at national and international conferences. Our Research Innovation Council provides guidance and support for student researchers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Ready to Join CMR University?</h2>
+            <p>Schedule a campus tour or speak with an admissions counselor to discover how CMR University can help you achieve your academic and career goals.</p>
+            <a href="contact.html"><button class="btn btn-primary">Contact Us</button></a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CMR University Tour Application. All rights reserved.</p>
+        <p>Developed as part of the Hackathon Project</p>
+    </footer>
+    
+    <script>
+        // Function to show selected section and hide others
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.info-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Update active nav item
+            document.querySelectorAll('.info-nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to clicked item
+            event.target.classList.add('active');
+        }
+        
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                
+                // Toggle display
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    this.querySelector('span:last-child').textContent = '+';
+                } else {
+                    content.style.display = 'block';
+                    this.querySelector('span:last-child').textContent = '-';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

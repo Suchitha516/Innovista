@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMR University | Top Private University in Bangalore, Karnataka</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333333;
+        }
+        
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #f8f8f8;
+            color: #003366;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .hero {
+            height: 60vh;
+            background-image: url('https://bangalores.best/wp-content/uploads/2021/06/CMR-University-campus.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        
+        .mission-vision {
+            padding: 3rem;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .mission-vision h2 {
+            color: #003366;
+            margin-bottom: 2rem;
+        }
+        
+        .mv-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .mv-box {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f8f8;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .mv-box h3 {
+            margin-bottom: 1rem;
+            color: #003366;
+        }
+        
+        .features {
+            padding: 3rem;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        
+        .features h2 {
+            color: #003366;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            margin: 1rem 0;
+            color: #003366;
+        }
+        
+        .feature-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #003366;
+        }
+        
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .mv-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">CMR University</div>
+        <div class="auth-buttons">
+            <a href="login.html"><button class="btn btn-secondary">Login</button></a>
+            <a href="register.html"><button class="btn btn-primary">Register</button></a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to CMR University</h1>
+            <p>Top Private University in Bangalore, Karnataka | Discover excellence in education, research and innovation</p>
+        </div>
+    </section>
+    
+    <section class="mission-vision">
+        <h2>Our Mission & Vision</h2>
+        <div class="mv-container">
+            <div class="mv-box">
+                <h3>Our Mission</h3>
+                <p>To nurture creative thinkers who will drive positive change. CMR University is committed to providing transformative education through innovative teaching methodologies, industry-relevant curriculum, and value-based learning that prepares students to lead and excel in a globally competitive environment.</p>
+            </div>
+            <div class="mv-box">
+                <h3>Our Vision</h3>
+                <p>To be a renowned university dedicated to excellence in education, research, and innovation. We aim to create a vibrant intellectual ecosystem that fosters critical thinking, creativity, and entrepreneurship while producing socially responsible global citizens equipped to address the challenges of the future.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <h2>Explore Our Campus</h2>
+        <div class="feature-grid">
+            <a href="map.html" style="text-decoration: none; color: inherit;">
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Campus Tour</h3>
+                    <p>Explore our state-of-the-art LEED Platinum certified campus in Bangalore</p>
+                    <button class="btn btn-primary">Virtual Tour</button>
+                </div>
+            </a>
+            
+            <a href="information.html" style="text-decoration: none; color: inherit;">
+                <div class="feature-card">
+                    <div class="feature-icon">ℹ️</div>
+                    <h3>Academic Programs</h3>
+                    <p>Discover our diverse range of undergraduate, postgraduate, and doctoral programs</p>
+                    <button class="btn btn-primary">View Programs</button>
+                </div>
+            </a>
+            
+            <a href="events.html" style="text-decoration: none; color: inherit;">
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Events & Workshops</h3>
+                    <p>Stay updated with academic conferences, cultural events, and industry workshops</p>
+                    <button class="btn btn-primary">View Calendar</button>
+                </div>
+            </a>
+            
+            <a href="facilities.html" style="text-decoration: none; color: inherit;">
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <h3>Facilities</h3>
+                    <p>Explore our cutting-edge facilities and innovation centers</p>
+                    <button class="btn btn-primary">Check facilities</button>
+                </div>
+            </a>
+            
+            <a href="reviews.html" style="text-decoration: none; color: inherit;">
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Reviews and ratings</h3>
+                    <p>Learn about our alumni achievements and industry placements</p>
+                    <button class="btn btn-primary">Reviews</button>
+                </div>
+            </a>
+            
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 CMR University. All rights reserved.</p>
+        <p>NAAC 'A' Accredited | Established under Karnataka State Act No. 45 of 2013</p>
+    </footer>
+</body>
+</html>

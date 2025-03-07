@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMR University - Upcoming Events</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: #003366;
+            margin-top: 2rem;
+            border-bottom: 2px solid #ff9900;
+            padding-bottom: 0.5rem;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .event-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .event-image {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        
+        .event-details {
+            padding: 1.5rem;
+        }
+        
+        .event-date {
+            color: #ff5722;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .event-title {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+            color: #003366;
+        }
+        
+        .event-location {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .event-location::before {
+            content: "📍";
+            margin-right: 0.5rem;
+        }
+        
+        .event-description {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .event-button {
+            display: inline-block;
+            background-color: #ff9900;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .event-button:hover {
+            background-color: #e68a00;
+        }
+        
+        .filter-container {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-button {
+            background-color: white;
+            border: 2px solid #003366;
+            color: #003366;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-button.active, .filter-button:hover {
+            background-color: #003366;
+            color: white;
+        }
+        
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CMR University Events</h1>
+        <p>Discover exciting academic and cultural events at Bangalore's leading private university</p>
+    </header>
+    
+    <div class="container">
+        <div class="filter-container">
+            <button class="filter-button active">All Events</button>
+            <button class="filter-button">Academic</button>
+            <button class="filter-button">Cultural</button>
+            <button class="filter-button">Sports</button>
+            <button class="filter-button">Industry Connect</button>
+        </div>
+        
+        <h2>Featured Events</h2>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-image">Event Image Placeholder</div>
+                <div class="event-details">
+                    <span class="event-date">March 15, 2025 • 10:00 AM</span>
+                    <h3 class="event-title">CMR National Education Summit 2025</h3>
+                    <div class="event-location">CMRIT Campus, ITPL Road, Bangalore</div>
+                    <p class="event-description">Join education leaders, innovators, and policymakers for CMR University's flagship education summit featuring keynote speakers, panel discussions, and networking opportunities.</p>
+                    <a href="#" class="event-button">Register Now</a>
+                </div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-image">Event Image Placeholder</div>
+                <div class="event-details">
+                    <span class="event-date">March 20, 2025 • 2:00 PM</span>
+                    <h3 class="event-title">AI & Machine Learning Workshop</h3>
+                    <div class="event-location">School of Engineering, CMR University</div>
+                    <p class="event-description">A hands-on workshop focused on emerging AI technologies and machine learning applications. Open to CMR students and faculty from all disciplines.</p>
+                    <a href="#" class="event-button">Register Now</a>
+                </div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-image">Event Image Placeholder</div>
+                <div class="event-details">
+                    <span class="event-date">April 5, 2025 • 6:30 PM</span>
+                    <h3 class="event-title">Industry Connect: Career Fair</h3>
+                    <div class="event-location">Main Auditorium, CMR University</div>
+                    <p class="event-description">Connect with leading companies and recruiters from across Karnataka. Perfect opportunity for final year students to explore career prospects.</p>
+                    <a href="#" class="event-button">RSVP</a>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Upcoming Events</h2>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-image">Event Image Placeholder</div>
+                <div class="event-details">
+                    <span class="event-date">April 12, 2025 • 9:00 AM</span>
+                    <h3 class="event-title">CMR Leadership Conclave</h3>
+                    <div class="event-location">School of Management, CMR University</div>
+                    <p class="event-description">A full-day conclave focused on developing leadership skills for students and young professionals, featuring sessions by corporate leaders and entrepreneurs.</p>
+                    <a href="#" class="event-button">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-image">Event Image Placeholder</div>
+                <div class="event-details">
+                    <span class="event-date">April 18, 2025 • 11:00 AM</span>
+                    <h3 class="event-title">Swachh Bangalore Initiative</h3>
+                    <div class="event-location">Starting from CMR University Main Campus</div>
+                    <p class="event-description">Join CMR's social responsibility initiative aimed at cleaning and beautifying selected areas of Bangalore. Certificate of participation will be provided.</p>
+                    <a href="#" class="event-button">Volunteer</a>
+                </div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-image">Event Image Placeholder</div>
+                <div class="event-details">
+                    <span class="event-date">May 2, 2025 • 3:00 PM</span>
+                    <h3 class="event-title">Samartha: Annual Cultural Fest</h3>
+                    <div class="event-location">CMR University Campus Grounds</div>
+                    <p class="event-description">Experience CMR's vibrant cultural diversity through music, dance, art exhibitions, and performances by students from all schools and departments.</p>
+                    <a href="#" class="event-button">Get Tickets</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CMR University. All rights reserved.</p>
+        <p>Contact us: events@cmr.edu.in | +91 80 2501 1500</p>
+        <p>CMRIT Campus, ITPL Road, Bangalore, Karnataka - 560037</p>
+    </footer>
+    
+    <script>
+        // Basic filter functionality
+        document.querySelectorAll('.filter-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // In a real application, you would filter the events here
+                // For this template, it's just a visual demonstration
+            });
+        });
+    </script>
+</body>
+</html>

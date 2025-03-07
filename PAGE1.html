@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangalore Engineering Colleges</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Search bar styles */
+        .search-container {
+            margin: 20px auto;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .search-input:focus {
+            border-color: #3498db;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 30px;
+            font-size: 18px;
+            color: #666;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Bangalore Engineering Colleges</h1>
+            <p>Find the best engineering colleges in Bangalore</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="college-search" class="search-input" placeholder="Search for colleges, courses, specializations...">
+            <span class="search-icon">🔍</span>
+        </div>
+        
+        <div id="no-results" class="no-results">
+            No colleges found matching your search. Try different keywords.
+        </div>
+
+        <div class="colleges-section">
+            <h2>Engineering Colleges in Bangalore</h2>
+            <div class="colleges-list">
+                <!-- Colleges will be listed here -->
+                <div class="college-card">
+                    <div class="college-info">
+                        <h3>CMR University (Lakeside Campus)</h3>
+                        <p class="college-address">Bagalur Main Road, Chagalahatti, Bengaluru-562149, Karnataka</p>
+                        <p class="college-details">
+                            <span class="tag">B.Tech</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">AI & ML</span>
+                            <span class="tag">Autonomous</span>
+                        </p>
+                    </div>
+                    <a href="front.html" class="college-link">View Details</a>
+                </div>
+
+                <div class="college-card">
+                    <div class="college-info">
+                        <h3>R.V. College of Engineering</h3>
+                        <p class="college-address">Mysore Road, R.V. Vidyanikethan, Bengaluru-560059, Karnataka</p>
+                        <p class="college-details">
+                            <span class="tag">B.E</span>
+                            <span class="tag">M.Tech</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">Electronics</span>
+                            <span class="tag">VTU</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="college-card">
+                    <div class="college-info">
+                        <h3>PES University</h3>
+                        <p class="college-address">100 Feet Ring Road, BSK III Stage, Bengaluru-560085, Karnataka</p>
+                        <p class="college-details">
+                            <span class="tag">B.Tech</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">AI & ML</span>
+                            <span class="tag">Private University</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="college-card">
+                    <div class="college-info">
+                        <h3>BMS College of Engineering</h3>
+                        <p class="college-address">Bull Temple Road, Basavanagudi, Bengaluru-560019, Karnataka</p>
+                        <p class="college-details">
+                            <span class="tag">B.E</span>
+                            <span class="tag">M.Tech</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">Electronics</span>
+                            <span class="tag">Autonomous</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="college-card">
+                    <div class="college-info">
+                        <h3>MS Ramaiah Institute of Technology</h3>
+                        <p class="college-address">MSR Nagar, MSRIT Post, Bengaluru-560054, Karnataka</p>
+                        <p class="college-details">
+                            <span class="tag">B.E</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">Mechanical</span>
+                            <span class="tag">Autonomous</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="college-card">
+                    <div class="college-info">
+                        <h3>Bangalore Institute of Technology</h3>
+                        <p class="college-address">K.R. Road, V.V. Puram, Bengaluru-560004, Karnataka</p>
+                        <p class="college-details">
+                            <span class="tag">B.E</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">VTU</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="college-card">
+                    <div class="college-info">
+                        <h3>Reva University</h3>
+                        <p class="college-address">Rukmini Knowledge Park, Kattigenahalli, Yelahanka, Bengaluru-560064, Karnataka</p>
+                        <p class="college-details">
+                            <span class="tag">B.Tech</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">AI & ML</span>
+                            <span class="tag">Private University</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="college-card">
+                    <div class="college-info">
+                        <h3>Dayananda Sagar College of Engineering</h3>
+                        <p class="college-address">Shavige Malleshwara Hills, Kumaraswamy Layout, Bengaluru-560078, Karnataka</p>
+                        <p class="college-details">
+                            <span class="tag">B.E</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">VTU</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="college-card">
+                    <div class="college-info">
+                        <h3>Sir M Visvesvaraya Institute of Technology</h3>
+                        <p class="college-address">Krishnadevaraya Nagar, Hunasamaranahalli, Bengaluru-562157, Karnataka</p>
+                        <p class="college-details">
+                            <span class="tag">B.E</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">VTU</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="college-card">
+                    <div class="college-info">
+                        <h3>Nitte Meenakshi Institute of Technology</h3>
+                        <p class="college-address">P.O. Box No.6429, Yelahanka, Bengaluru-560064, Karnataka</p>
+                        <p class="college-details">
+                            <span class="tag">B.E</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">VTU</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bangalore Engineering Colleges Directory. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality
+        document.getElementById('college-search').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const collegeCards = document.querySelectorAll('.college-card');
+            let visibleCount = 0;
+            
+            collegeCards.forEach(card => {
+                const collegeName = card.querySelector('h3').textContent.toLowerCase();
+                const collegeAddress = card.querySelector('.college-address').textContent.toLowerCase();
+                const collegeTags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                
+                // Check if the search term is in any of the college information
+                const isVisible = 
+                    collegeName.includes(searchTerm) || 
+                    collegeAddress.includes(searchTerm) || 
+                    collegeTags.some(tag => tag.includes(searchTerm));
+                
+                // Show or hide the card based on search match
+                if (isVisible) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Show "No results" message if no colleges match the search
+            const noResultsElement = document.getElementById('no-results');
+            if (visibleCount === 0 && searchTerm.length > 0) {
+                noResultsElement.style.display = 'block';
+            } else {
+                noResultsElement.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

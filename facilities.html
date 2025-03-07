@@ -1,0 +1,544 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMR University Facilities</title>
+        <style> {
+            font-family : 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #3498db;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .facility-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .facility-image {
+            height: 220px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facility-image::before {
+            content: "Image";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #777;
+        }
+        
+        .facility-details {
+            padding: 1.5rem;
+        }
+        
+        .facility-title {
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0;
+            color: #2c3e50;
+        }
+        
+        .facility-features {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .facility-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .facility-features li::before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            left: -1.5rem;
+            font-weight: bold;
+        }
+        
+        .facility-description {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .features-section {
+            background-color: #ecf0f1;
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+        
+        .testimonials {
+            margin: 3rem 0;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            position: relative;
+            padding: 0 1.5rem;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: """;
+            font-size: 3rem;
+            color: #bdc3c7;
+            position: absolute;
+            line-height: 0;
+        }
+        
+        .testimonial-text::before {
+            left: -5px;
+            top: 15px;
+        }
+        
+        .testimonial-text::after {
+            content: """;
+            right: 0;
+            bottom: 0;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #2c3e50;
+            display: block;
+            margin-top: 1rem;
+        }
+        
+        .booking-section {
+            background-color: #3498db;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .booking-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .booking-button {
+            display: inline-block;
+            background-color: white;
+            color: #3498db;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .booking-button:hover {
+            background-color: #f9f9f9;
+            transform: scale(1.05);
+        }
+        
+        .faq-section {
+            margin: 3rem 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-links {
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .virtual-tour {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .tour-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #e74c3c;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .tour-button:hover {
+            background-color: #c0392b;
+        }
+        
+        .tour-button::before {
+            content: "🎥";
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .facilities-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CMR University World-Class Facilities</h1>
+        <p class="subtitle">Experience excellence in every space designed for your academic journey and holistic development</p>
+    </header>
+    
+    <div class="container">
+        <div class="intro">
+            <p>Welcome to CMR University's state-of-the-art facilities, where modern design meets educational excellence. Our campus spaces are thoughtfully crafted to provide students with the perfect environment for learning, research, recreation, and community engagement at one of the top private universities in Bangalore, Karnataka.</p>
+        </div>
+        
+        <h2>Main Facilities</h2>
+        <div class="facilities-grid">
+            <div class="facility-card">
+                <div class="facility-image"></div>
+                <div class="facility-details">
+                    <h3 class="facility-title">Academic Blocks</h3>
+                    <p class="facility-description">Our modern academic blocks offer versatile spaces for lectures, seminars, and collaborative learning experiences.</p>
+                    <ul class="facility-features">
+                        <li>Smart classrooms with interactive technology</li>
+                        <li>State-of-the-art AV equipment</li>
+                        <li>Flexible learning spaces</li>
+                        <li>Campus-wide high-speed Wi-Fi</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="facility-card">
+                <div class="facility-image"></div>
+                <div class="facility-details">
+                    <h3 class="facility-title">Sports Complex</h3>
+                    <p class="facility-description">Our comprehensive sports complex features modern equipment and facilities for various sports and fitness activities.</p>
+                    <ul class="facility-features">
+                        <li>Indoor and outdoor sports arenas</li>
+                        <li>Fully equipped gymnasium</li>
+                        <li>Swimming pool</li>
+                        <li>Professional coaching facilities</li>
+                    </ul>
+                    
+                </div>
+            </div>
+            
+            <div class="facility-card">
+                <div class="facility-image"></div>
+                <div class="facility-details">
+                    <h3 class="facility-title">Research Centers</h3>
+                    <p class="facility-description">Cutting-edge research facilities designed to foster innovation, critical thinking, and pioneering discoveries.</p>
+                    <ul class="facility-features">
+                        <li>Advanced laboratories and equipment</li>
+                        <li>Collaborative research spaces</li>
+                        <li>Industry-academia partnership zones</li>
+                        <li>Research seminars and workshops</li>
+                    </ul>
+                   
+                </div>
+            </div>
+        </div>
+        
+        <div class="facilities-grid" style="margin-top: 2rem;">
+            <div class="facility-card">
+                <div class="facility-image"></div>
+                <div class="facility-details">
+                    <h3 class="facility-title">CMR University Library</h3>
+                    <p class="facility-description">A comprehensive resource center with vast collections supporting academic excellence and research.</p>
+                    <ul class="facility-features">
+                        <li>Extensive physical and digital collections</li>
+                        <li>Quiet study zones and discussion rooms</li>
+                        <li>Digital resource access terminals</li>
+                        <li>Research assistance and information literacy programs</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            
+            <div class="facility-card">
+                <div class="facility-image"></div>
+                <div class="facility-details">
+                    <h3 class="facility-title">Campus Cafeteria</h3>
+                    <p class="facility-description">Our modern dining facilities offer diverse culinary options in a comfortable atmosphere for students and faculty.</p>
+                    <ul class="facility-features">
+                        <li>Multiple cuisine options</li>
+                        <li>Healthy and dietary-specific meal choices</li>
+                        <li>Coffee shop and snack counters</li>
+                        <li>Indoor and outdoor seating areas</li>
+                    </ul>
+                    
+                </div>
+            </div>
+            
+            <div class="facility-card">
+                <div class="facility-image"></div>
+                <div class="facility-details">
+                    <h3 class="facility-title">Student Activity Center</h3>
+                    <p class="facility-description">A vibrant hub for extracurricular activities, clubs, and student-led initiatives.</p>
+                    <ul class="facility-features">
+                        <li>Club meeting rooms and activity spaces</li>
+                        <li>Cultural performance area</li>
+                        <li>Student council offices</li>
+                        <li>Event planning resources</li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="features-section">
+        <div class="container">
+            <h2>Why Choose CMR University</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Academic Excellence</h3>
+                    <p>Consistently ranked among the top private universities in Bangalore with distinguished faculty and industry-aligned curriculum.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">♿</div>
+                    <h3>Inclusive Campus</h3>
+                    <p>All facilities are designed for complete accessibility, ensuring an inclusive learning environment for every student.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Green Campus Initiative</h3>
+                    <p>Our eco-friendly campus incorporates sustainable design practices and energy-efficient systems.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Industry Connections</h3>
+                    <p>Strong industry partnerships that provide students with internships, placements, and real-world learning opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="virtual-tour">
+            <h2>Experience CMR University</h2>
+            <p>Can't visit in person? Take a virtual tour to explore our Bangalore campus from anywhere.</p>
+            <a href="map.html" class="tour-button">Take a Virtual Tour</a>
+        </div>
+        
+        <div class="testimonials">
+            <h2>What Our Students Say</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">The state-of-the-art labs at CMR University gave me hands-on experience that was crucial for my career in engineering. The faculty support and industry exposure prepared me for real-world challenges.</p>
+                <span class="testimonial-author">- Priya S., B.Tech Graduate</span>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">CMR University's library and research facilities provided me with all the resources I needed for my academic projects. The campus environment truly fosters both academic and personal growth.</p>
+                <span class="testimonial-author">- Rahul M., MBA Student</span>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <p class="faq-question">How can I apply to CMR University?</p>
+                <p class="faq-answer">Applications can be submitted online through our admissions portal. You can also visit our campus in Bangalore for in-person assistance with the application process.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Are campus facilities accessible to visitors?</p>
+                <p class="faq-answer">Yes, prospective students and their families can visit our campus during working hours. For guided tours and specific facility visits, please schedule an appointment through our admissions office.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Does CMR University offer scholarships?</p>
+                <p class="faq-answer">Yes, we offer merit-based scholarships and financial assistance programs for deserving students. Please check our scholarships page for eligibility criteria and application details.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Are hostel facilities available for students?</p>
+                <p class="faq-answer">Yes, CMR University provides comfortable and secure hostel accommodations for both male and female students with modern amenities and round-the-clock security.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="booking-section">
+        <div class="booking-container">
+            <h2>Ready to Join CMR University?</h2>
+            <p>Schedule a campus visit, apply for admission, or contact our admissions team to begin your journey at one of Bangalore's premier educational institutions.</p>
+
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CMR University. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Academics</a>
+                <a href="#">Admissions</a>
+                <a href="#">Research</a>
+                <a href="#">Contact</a>
+            </div>
+            <p>Contact: admissions@cmr.edu.in | (080) 2561-4444</p>
+        </div>
+    </footer>
+</body>
+</html>
